@@ -1,0 +1,41 @@
+---
+import Header from "../components/Header.astro";
+import "../style/main.css"
+---
+<!DOCTYPE html>
+<html lang="en">
+  <Header og="/social-preview-image.png" title="login"/>
+  <body>
+    <main id="main-content">
+      <section class="bg-neutral-100">
+        <div class="login">
+          <div class="login__inner reveal h-screen">
+            <div class="inner__brand">
+              <div class="bg-neutral-900 radius-large space-8">
+                <img
+                  class="brand__logo radius-large"
+                  src="/astro-logo.svg"
+                  alt=""
+                >
+              </div>
+              <div class="brand__text">
+                <span>Astro Dashboard</span>
+                <span>An Accessible Astro Theme</span>
+              </div>
+            </div>
+            <div class="inner__form space-content">
+              <div class="space-content">
+                <h1>Login</h1>
+                <LoginForm />
+              </div>
+            </div>
+            <div class="login__footer text-neutral-700">
+              <p><em>Build fast dashboards, faster.</em></p>
+            </div>
+          </div>
+          <div class="login__background h-screen" />
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+---
+const pageList:{label:string,href:string}[] = [
+  {label:"Home" ,href:"/"},
+  {label:"Dashboard" ,href:"/project"},
+  {label:"Contact" ,href:"/portofolio"},
+]
+---
+<aside id="sidebar">
+  <div class="side-menu">
+    <ul class="nav-items">
+      {pageList.map(({label,href})=>{
+      return (
+      <li>
+        <a href={href} aria-current={Astro.url.pathname === href} 						
+          class:list={[
+            'link',
+            {
+              active:
+                Astro.url.pathname === href ||
+                (href !== '/' && Astro.url.pathname.startsWith(href)),
+            },
+          ]}
+        >
+        {label}
+        </a>
+      </li>
+      )})}
+    </ul>
+  </div>
+</aside>
+<style>
+aside {
+  position:fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 6rem 3rem 3rem 0;
+  background: var(--gray-900);
+}
+.search-bar{
+  position:relative;
+  width: 10rem;
+  
+}
+.side-menu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+</style>
