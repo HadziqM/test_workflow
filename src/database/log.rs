@@ -12,7 +12,7 @@ pub struct ShipLogs {
     created_at:NaiveDateTime
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize,Serialize)]
 pub struct Message{
     pub message: String,
     pub severity:i32,

@@ -25,9 +25,9 @@ pub async fn login(form:Json<FormUser>,db:&Logs,jar:&CookieJar<'_>,state:&State<
 }
 
 #[get("/initial")]
-pub async fn ships(db:&Logs,jar:&CookieJar<'_>,state:&State<Session>,id:i32)->Option<Json<Users>> {
+pub async fn ships(db:&Logs,jar:&CookieJar<'_>,state:&State<Session>)->Option<Json<Users>> {
     if let Some(pg) = state.in_session(jar).await {
-        return Json(db.get_user_ui_data(&pg).await.ok()?);
+        return Some(Json(db.get_user_ui_data(&pg).await.ok()?));
     }
     None
 }

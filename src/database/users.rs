@@ -29,7 +29,7 @@ pub struct ShipSensors{
 }
 
 //struct for database interfacing only
-#[derive(FromRow)]
+#[derive(FromRow,Clone)]
 pub struct PgUsers{
     pub username:String,
     pub password:String,
