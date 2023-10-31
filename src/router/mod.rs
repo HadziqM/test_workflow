@@ -6,10 +6,10 @@ use crate::cookies::Session;
 impl Session {
     async fn dashboard(&self,jar:&CookieJar<'_>)->NamedFile {
         if self.in_session(jar).await.is_some() {
-            let path = Path::new(".").join("astro").join("dist").join("dashboard.html");
+            let path = Path::new(".").join("astro").join("dist").join("dashboard").join("index.html");
             return  NamedFile::open(path).await.unwrap();
         }
-        let path = Path::new(".").join("astro").join("dist").join("login.html");
+        let path = Path::new(".").join("astro").join("dist").join("login.html").join("index.html");
         return  NamedFile::open(path).await.unwrap();
     }
 }
