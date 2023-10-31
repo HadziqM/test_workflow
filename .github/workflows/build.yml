@@ -24,10 +24,10 @@ jobs:
         run: cargo build --release
       - name: rename windows config and move exutable
         if: matrix.platform == 'windows-latest'
-        run: ren ./config.json.example config.json&&copy ./target/release/ship-monitor-astro-rocket.exe .
+        run: copy ./target/release/ship-monitor-astro-rocket.exe .
       - name: rename linux and mac config and move exutable
         if: matrix.platform != 'windows-latest'
-        run: mv ./config.json.example config.json&&cp ./target/release/ship-monitor-astro-rocket .
+        run: cp ./target/release/ship-monitor-astro-rocket .
 
 
       - name: upload windows-artefact
